@@ -1,0 +1,42 @@
+snowflake_test: # the name of the profile to use, for a monorepo this is often just 'default'
+  target: dev # Default target to use when not specified in the `dbt run` command
+
+  # Each target has its own `output` and can be configured as needed for different databases, schemas, connections etc
+
+  outputs:
+    dev: # name of the target
+      type: snowflake
+      account: your_full_snowflake account
+
+      # User/password auth
+      user: your_username
+      password: your_password
+
+      role: PC_DBT_ROLE # base sample snowflake role
+      database: PC_DBT_DB # base sample snowflake db
+      warehouse: PC_DBT_WH # base sample snowflake warehouse
+      schema: dev # the default schema you want used in this target, can be overridden 
+      threads: 1
+      client_session_keep_alive: False
+      query_tag: test
+
+      # optional
+      connect_retries: 0 # default 0
+      connect_timeout: 10 # default: 10
+      retry_on_database_errors: False # default: false 
+      retry_all: False  # default: false
+    test: # name of the target, note this target won't be used unless specifically specified the `dbt run` command
+      type: snowflake
+      account: your_full_snowflake account
+
+      # User/password auth
+      user: your_username
+      password: your_password
+
+      role: PC_DBT_ROLE # base sample snowflake role
+      database: PC_DBT_DB # base sample snowflake db
+      warehouse: PC_DBT_WH # base sample snowflake warehouse
+      schema: test # the default schema you want used in this target, can be overridden
+      threads: 1
+      client_session_keep_alive: False
+      query_tag: test
