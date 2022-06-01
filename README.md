@@ -1,12 +1,4 @@
-
-
-
-## Example
-## Example2
-## Third Example
-## [Fourth Example](http://www.fourthexample.com) 
-
-# TDF Sample DBT Project
+# The Data Foundry - Sample DBT Project
 
 This project is based on the standard `jaffle shop` model for dbt, including additional other models to replicate a more real world situation.
 

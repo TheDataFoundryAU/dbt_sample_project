@@ -1,0 +1,1 @@
+dbt debug --profiles-dir .

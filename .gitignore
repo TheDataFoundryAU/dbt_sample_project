@@ -1,0 +1,9 @@
+# ignored folders
+target/
+compiled/
+dbt_packages/
+logs/
+
+# files ignored
+profiles.yml
+.user.yml
