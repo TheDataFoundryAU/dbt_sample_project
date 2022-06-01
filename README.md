@@ -47,6 +47,7 @@ NB: All models within a project need to be uniquely named, so it may make sense 
 #### Folders
 
 
+
 #### Profile
 
 
@@ -90,7 +91,13 @@ All of the models have tests in them, but custom tests (using dbt_utils) are bei
 
 ### Targets
 
+Targets (maybe better thought of as stages) allow for you to use your dbt project in different configurations as defined in your `profiles.yml` file. The sample profile has two targets to show how this might be used.
 
+Targets will use what is defined in the `target:` key in the profile and can be overridden as needed to run in a different target. Probably the most common use case is leaving as `dev`, then setting a target or `test` or `prod` at runtime as needed. To use a specific target at runtime use the command below
+
+```bash
+dbt run --target your_target_here
+```
 
 ### Packages
 
@@ -99,11 +106,31 @@ TBC
 
 ### Documents
 
+DBT can automatically generate documentation of the environment. This contains a bunch of useful info like the columns, tests being run, the SQL and so on.
+
+![dbt Documents](/etc/docs.png)
+
+dbt also generates lineage graphs as part of the docs. This can be really helpful in debugging when you have a lot of models and dependancies.
+
+![dbt Lineage](/etc/lineage.png)
+
+To generate the docs run the command below:
+
+```bash
+dbt docs generate
+```
+
+To view the docs use this:
+
+```bash
+dbt docs serve
+```
 
 ### Documentation Macros
 
+Data quality, data standards, consistency, who wants to do all that?! You should!
 
-
+Thankfully dbt makes that much easier when using this. In the `models/jaffles/schema.yml` file on the `status` column you'll see how its used. This, populates into the docs above and makes for some nice easy docs that are referenced in a single place. Notice in the `customer_id` column you can even include images in the doco if there is value.
 
 # Jaffle Shop
 
