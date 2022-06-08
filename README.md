@@ -101,7 +101,20 @@ dbt run --target your_target_here
 
 ### Packages
 
-TBC
+DBT can include additional packages to serve a number of functions. For more info [look here](https://docs.getdbt.com/docs/building-a-dbt-project/package-management) and [here](https://hub.getdbt.com/dbt-labs/codegen/latest/)
+
+dbt-codegen is included in packages as an example, but packages can also be from a git repo too.
+
+To install the dependancies run the following command:
+
+```bash
+dbt deps
+```
+
+Example usage:
+```bash
+dbt run-operation generate_source --args '{"schema_name": "jaffle_shop", "database_name": "raw"}' --profiles-dir . > source.yml
+```
 
 
 ### Documents
